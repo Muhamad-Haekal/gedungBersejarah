@@ -1,5 +1,5 @@
 <?php
-    include_once __DIR__ . "/../view/connection.php";
+  include_once __DIR__ . "/../connect.php";
 
 class GedungModel extends Connection
 {
@@ -9,7 +9,7 @@ class GedungModel extends Connection
 
     public function findAll()
     {
-        $sql = "SELECT * FROM gedung_bersejarah";
+        $sql = "SELECT * FROM gedung";
         $result = $this->connect()->query($sql);
         if ($result->num_rows > 0) {
             while ($data = mysqli_fetch_assoc($result)) {
@@ -21,7 +21,7 @@ class GedungModel extends Connection
 
     protected function findOne($id)
     {
-        $sql = "SELECT * FROM gedung_bersejarah WHERE id = " . $id;
+        $sql = "SELECT * FROM gedung WHERE id = " . $id;
         $result = $this->connect()->query($sql);
         if ($result->num_rows > 0) {
             while ($data = mysqli_fetch_assoc($result)) {

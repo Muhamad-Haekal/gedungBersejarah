@@ -6,18 +6,16 @@
     <title>Gedung Bersejarah Indonesia</title>
 </head>
 <body>
-    <?php include __DIR__ . "/utils/navbar.utils.php"; ?>
+    <?php include __DIR__ . "/view/utils/navbar.utils.php"; ?>
 
     <?php 
-  
-    include __DIR__ . "/../controller/gedung.controller.php";
-    include __DIR__ . "/gedung/gedung.view.php";
+    include __DIR__ . "/controller/gedung.controller.php";
+    include __DIR__ . "/view/gedung/gedung.view.php";
 
-    $products = new ProductView();
+    $gedungs = new GedungView();
+    $gedungs->find(); 
     ?>
 
-    <?php $products->find(); ?> 
-    
     <table border="1">
         <tr>
             <th>ID</th>
@@ -25,7 +23,7 @@
             <th>LOKASI</th>
             <th>DESKRIPSI</th>
         </tr>
-        <?php $products->show() ?>
+        <?php $gedungs->show(); ?>
     </table>
 </body>
 </html>
